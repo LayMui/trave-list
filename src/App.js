@@ -108,18 +108,16 @@ function PackingList({items, onDeleteItem, onToggleItem, onClearList}) {
       {sortedItems.map(item => <Item item={item} 
       onDeleteItem={onDeleteItem} 
       onToggleItem={onToggleItem}
-      onClearList={onClearList}
       key={item.id}/>)}
     </ul>
 
-    <div className="actions" onChange={(e) => setSortBy(e.target.value)}>
-      <select value={sortBy}>
+    <div className="actions">
+      <select value={sortBy}  onChange={(e) => setSortBy(e.target.value)}>
         <option value="input">Sort by input order</option>
         <option value="description">Sort by description order</option>
         <option value="packed">Sort by packed status</option>
-     
       </select>
-      <Button onClick={() => onClearList()}>clear list</Button>
+      <Button onClick={onClearList}>clear list</Button>
     </div>
   </div>
   )
